@@ -1,8 +1,7 @@
 import 'package:crowdfunding_web/common/styles.dart';
+import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
-
-import 'ui/screens/home_page.dart';
 
 void main() {
   setPathUrlStrategy();
@@ -18,8 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: textTheme,
       ),
+      initialRoute: HomePage.id,
       routes: {
-        HomePage.id: (context) => HomePage(),
+        HomePage.id: (_) => HomePage(),
       },
     );
   }
