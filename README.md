@@ -5,7 +5,7 @@
 - Make sure you have Flutter installed in your machine (for more reference go to [Flutter docs](https://flutter.dev/docs/get-started/install))
 - Switch your flutter channel to beta **flutter channel beta**
 - Then run **flutter upgrade**
-- Clone this repo to your local machine (git clone https://github.com/TjandraD/rest-o.git)
+- Clone this repo to your local machine (git clone https://github.com/TjandraD/crowdfunding-web.git)
 - Open your browser
 - Try run the **flutter run** command in your terminal / command prompt
 - The app is up and running
