@@ -1,16 +1,14 @@
-# crowdfunding_web
+# Crowdfunding Web (Wikrama)
 
-A new Flutter project.
+## Getting Started - Installing Guides
 
-## Getting Started
+- Make sure you have Flutter installed in your machine (for more reference go to [Flutter docs](https://flutter.dev/docs/get-started/install))
+- Switch your flutter channel to beta **flutter channel beta**
+- Then run **flutter upgrade**
+- Clone this repo to your local machine (git clone https://github.com/TjandraD/rest-o.git)
+- Open your browser
+- Try run the **flutter run** command in your terminal / command prompt
+- The app is up and running
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Bonus step if you want to build the app
+- Run **flutter build web**

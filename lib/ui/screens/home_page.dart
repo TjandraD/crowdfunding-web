@@ -6,7 +6,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Ini Home Page"),
+        child: Text(
+          "Ini Home Page",
+          style: Theme.of(context).textTheme.headline1,
+        ),
       ),
     );
   }
