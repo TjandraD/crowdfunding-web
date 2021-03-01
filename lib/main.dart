@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Crowdfunding Web',
       debugShowCheckedModeBanner: false,
+      title: 'Crowdfunding Web',
       theme: ThemeData(
         textTheme: textTheme,
       ),
