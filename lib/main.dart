@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/styles.dart';
+import 'package:crowdfunding_web/pages/donation_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomePage.id,
       routes: {
         HomePage.id: (_) => HomePage(),
+        DonationPage.id: (_) => DonationPage(),
       },
     );
   }
