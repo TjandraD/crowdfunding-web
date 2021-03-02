@@ -1,5 +1,6 @@
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/widgets/build_appBar.dart';
+import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:crowdfunding_web/widgets/program_card.dart';
 import 'package:crowdfunding_web/widgets/status.dart';
 import 'package:flutter/material.dart';
@@ -91,18 +92,7 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                alignment: Alignment.center,
-                width: double.infinity,
-                height: 50,
-                color: Colors.grey,
-                child: Text(
-                  "Copyright © 2021 - SMK Wikrama Bogor. All Right Reserved.",
-                  style: Theme.of(context).textTheme.caption.copyWith(
-                        color: Colors.white,
-                      ),
-                ),
-              ),
+              Footer(),
             ],
           ),
         ),

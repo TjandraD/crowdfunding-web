@@ -1,4 +1,6 @@
 import 'package:crowdfunding_web/common/utils.dart';
+import 'package:crowdfunding_web/pages/donation_page.dart';
+import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
@@ -11,6 +13,7 @@ class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   int indexNumber = 0;
   bool isHover = true;
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -34,12 +37,18 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 isHover = value;
               });
             },
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                pageNumber = 0;
+              });
+              Navigator.pushNamed(context, HomePage.id);
+            },
             child: Center(
               child: Text(
                 'Beranda',
                 style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: (indexNumber == 0 && isHover != false)
+                    color: (indexNumber == 0 && isHover != false ||
+                            pageNumber == 0)
                         ? Colors.black
                         : Colors.grey),
               ),
@@ -56,12 +65,18 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 isHover = value;
               });
             },
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                pageNumber = 1;
+              });
+              Navigator.pushNamed(context, DonationPage.id);
+            },
             child: Center(
               child: Text(
                 'Donasi',
                 style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: (indexNumber == 1 && isHover != false)
+                    color: (indexNumber == 1 && isHover != false ||
+                            pageNumber == 1)
                         ? Colors.black
                         : Colors.grey),
               ),
@@ -78,12 +93,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 isHover = value;
               });
             },
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                pageNumber = 2;
+              });
+            },
             child: Center(
               child: Text(
                 'Laporan',
                 style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: (indexNumber == 2 && isHover != false)
+                    color: (indexNumber == 2 && isHover != false ||
+                            pageNumber == 2)
                         ? Colors.black
                         : Colors.grey),
               ),
@@ -100,12 +120,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 isHover = value;
               });
             },
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                pageNumber = 3;
+              });
+            },
             child: Center(
               child: Text(
                 'Hubungi Kami',
                 style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: (indexNumber == 3 && isHover != false)
+                    color: (indexNumber == 3 && isHover != false ||
+                            pageNumber == 3)
                         ? Colors.black
                         : Colors.grey),
               ),
