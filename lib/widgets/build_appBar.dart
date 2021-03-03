@@ -1,5 +1,5 @@
 import 'package:crowdfunding_web/common/utils.dart';
-import 'package:crowdfunding_web/pages/donation_page.dart';
+import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +69,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
               setState(() {
                 pageNumber = 1;
               });
-              Navigator.pushNamed(context, DonationPage.id);
+              Navigator.pushNamed(context, ProgramPage.id);
             },
             child: Center(
               child: Text(
