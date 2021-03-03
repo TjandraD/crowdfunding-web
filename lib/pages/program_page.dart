@@ -4,7 +4,7 @@ import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:crowdfunding_web/widgets/program_card.dart';
 import 'package:flutter/material.dart';
 
-class DonationPage extends StatelessWidget {
+class ProgramPage extends StatelessWidget {
   static const String id = '/donation';
   @override
   Widget build(BuildContext context) {
