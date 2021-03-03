@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/styles.dart';
+import 'package:crowdfunding_web/pages/payment_status_page.dart';
 import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -18,10 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: textTheme,
       ),
-      initialRoute: HomePage.id,
+      initialRoute: PaymentStatusPage.id,
       routes: {
         HomePage.id: (_) => HomePage(),
         ProgramPage.id: (_) => ProgramPage(),
+        PaymentStatusPage.id: (_) => PaymentStatusPage(),
       },
     );
   }
