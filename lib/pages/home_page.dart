@@ -11,6 +11,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String year = now.year.toString();
+    String month = (int.tryParse(now.month.toString()) < 10)
+        ? '0${now.month.toString()}'
+        : now.month.toString();
+    String day = (int.tryParse(now.day.toString()) < 10)
+        ? '0${now.day.toString()}'
+        : now.day.toString();
+
     return Scaffold(
       appBar: CustomAppBar(),
       body: SizedBox.expand(
@@ -45,7 +54,7 @@ class HomePage extends StatelessWidget {
                           ),
                     ),
                     Text(
-                      "Sampai dengan 26 Februari 2021",
+                      "Sampai dengan $day/$month/$year",
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     SizedBox(
