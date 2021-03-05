@@ -108,6 +108,7 @@ class HomePage extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
+                          SizedBox(width: defaultPadding * 2),
                           ProgramCard(),
                           ProgramCard(),
                           ProgramCard(),
