@@ -1,4 +1,7 @@
 import 'package:crowdfunding_web/common/styles.dart';
+import 'package:crowdfunding_web/pages/payment_error_page.dart';
+import 'package:crowdfunding_web/pages/payment_failed_page.dart';
+import 'package:crowdfunding_web/pages/payment_success_page.dart';
 import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +25,9 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.id: (_) => HomePage(),
         ProgramPage.id: (_) => ProgramPage(),
+        PaymentSuccess.id: (_) => PaymentSuccess(),
+        PaymentFailed.id: (_) => PaymentFailed(),
+        PaymentError.id: (_) => PaymentError(),
       },
     );
   }
