@@ -26,6 +26,7 @@ class PaymentStatus extends StatelessWidget {
           ),
           Text(
             statusText,
+            textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
                 .bodyText1
