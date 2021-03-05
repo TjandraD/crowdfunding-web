@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class Status extends StatelessWidget {
   const Status({
@@ -13,20 +14,29 @@ class Status extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Column(
-        children: [
-          Text(
-            statusCount,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: Colors.black),
-          ),
-          Text(
-            statusTitle,
-            style: Theme.of(context).textTheme.subtitle1,
-          )
-        ],
+      child: ResponsiveBuilder(
+        builder: (context, sizingInformation) {
+          TextStyle statusCountStyle = (sizingInformation.isMobile)
+              ? Theme.of(context).textTheme.subtitle1
+              : Theme.of(context).textTheme.headline6;
+          TextStyle statusTitleStyle = (sizingInformation.isMobile)
+              ? Theme.of(context).textTheme.subtitle2
+              : Theme.of(context).textTheme.subtitle1;
+
+          return Column(
+            children: [
+              Text(
+                statusCount,
+                style: statusCountStyle.copyWith(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                statusTitle,
+                style: statusTitleStyle,
+              )
+            ],
+          );
+        },
       ),
     );
   }

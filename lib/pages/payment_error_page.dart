@@ -1,4 +1,4 @@
-import 'package:crowdfunding_web/widgets/build_appBar.dart';
+import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:crowdfunding_web/widgets/payment_status.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,7 @@ class _PaymentErrorState extends State<PaymentError> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBarDesktopTablet(),
       body: PaymentStatus(
         lottieAssetSource:
             'https://assets6.lottiefiles.com/packages/lf20_4azG0q.json',

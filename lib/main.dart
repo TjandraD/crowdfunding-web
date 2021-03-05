@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: textTheme,
       ),
-      initialRoute: PaymentError.id,
+      initialRoute: HomePage.id,
       routes: {
         HomePage.id: (_) => HomePage(),
         ProgramPage.id: (_) => ProgramPage(),

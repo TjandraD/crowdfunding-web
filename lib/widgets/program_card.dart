@@ -23,8 +23,9 @@ class _ProgramCardState extends State<ProgramCard> {
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
+        margin: EdgeInsets.all(defaultPadding * 2),
         width: 300,
-        height: 500,
+        height: 600,
         decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [
