@@ -1,6 +1,6 @@
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/pages/report_detail_page.dart';
-import 'package:crowdfunding_web/widgets/build_appBar.dart';
+import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class ReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBarDesktopTablet(),
       backgroundColor: Color(0xFFF3F3F3),
       body: SingleChildScrollView(
         child: Column(

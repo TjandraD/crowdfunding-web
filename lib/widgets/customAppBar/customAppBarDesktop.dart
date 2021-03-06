@@ -4,14 +4,16 @@ import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:crowdfunding_web/pages/report_page.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
+class CustomAppBarDesktopTablet extends StatefulWidget
+    with PreferredSizeWidget {
   @override
-  _CustomAppBarState createState() => _CustomAppBarState();
+  _CustomAppBarDesktopTabletState createState() =>
+      _CustomAppBarDesktopTabletState();
   @override
   Size get preferredSize => Size.fromHeight(80);
 }
 
-class _CustomAppBarState extends State<CustomAppBar> {
+class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
   int indexNumber = 0;
   bool isHover = true;
 

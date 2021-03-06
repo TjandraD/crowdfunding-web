@@ -1,4 +1,4 @@
-import 'package:crowdfunding_web/widgets/build_appBar.dart';
+import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:flutter/material.dart';
 
 class ReportDetail extends StatelessWidget {
@@ -7,7 +7,7 @@ class ReportDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF3F3F3),
-      appBar: CustomAppBar(),
+      appBar: CustomAppBarDesktopTablet(),
       body: SingleChildScrollView(),
     );
   }
