@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/utils.dart';
+import 'package:crowdfunding_web/pages/donation_page.dart';
 import 'package:flutter/material.dart';
 
 class ProgramCard extends StatefulWidget {
@@ -132,20 +133,25 @@ class _ProgramCardState extends State<ProgramCard> {
                       style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: defaultPadding * 2),
-                    width: double.infinity,
-                    height: 30,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: buttonColor,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Text(
-                      "DONASI SEKARANG",
-                      style: Theme.of(context).textTheme.bodyText2.copyWith(
-                            color: Colors.white,
-                          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, DonationPage.id);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(top: defaultPadding * 2),
+                      width: double.infinity,
+                      height: 30,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: buttonColor,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Text(
+                        "DONASI SEKARANG",
+                        style: Theme.of(context).textTheme.bodyText2.copyWith(
+                              color: Colors.white,
+                            ),
+                      ),
                     ),
                   ),
                 ],

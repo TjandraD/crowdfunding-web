@@ -1,6 +1,7 @@
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
+import 'package:crowdfunding_web/pages/report_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatefulWidget with PreferredSizeWidget {
@@ -96,6 +97,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             onTap: () {
               setState(() {
                 pageNumber = 2;
+                Navigator.pushNamed(context, ReportPage.id);
               });
             },
             child: Center(

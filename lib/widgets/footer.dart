@@ -7,13 +7,16 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String year = now.year.toString();
+
     return Container(
       alignment: Alignment.center,
       width: double.infinity,
       height: 50,
       color: Colors.grey,
       child: Text(
-        "Copyright © 2021 - SMK Wikrama Bogor. All Right Reserved.",
+        "Copyright © $year - SMK Wikrama Bogor. All Right Reserved.",
         style: Theme.of(context).textTheme.caption.copyWith(
               color: Colors.white,
             ),
