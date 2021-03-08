@@ -17,26 +17,28 @@ class ProgramPage extends StatelessWidget {
           appBar: (sizingInformation.isMobile)
               ? CustomAppBarMobile()
               : CustomAppBarDesktopTablet(),
-          body: SizedBox.expand(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Wrap(
-                    spacing: defaultPadding * 4,
-                    runSpacing: defaultPadding * 4,
-                    children: [
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                      ProgramCard(),
-                    ],
-                  ),
-                  Footer(),
-                ],
+          body: Scrollbar(
+            child: SizedBox.expand(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Wrap(
+                      spacing: defaultPadding * 4,
+                      runSpacing: defaultPadding * 4,
+                      children: [
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                        ProgramCard(),
+                      ],
+                    ),
+                    Footer(),
+                  ],
+                ),
               ),
             ),
           ),
