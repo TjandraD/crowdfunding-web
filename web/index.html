@@ -32,6 +32,26 @@
 </head>
 
 <body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBIlJP31TgJw9Ger3SF3c_TDNQBbFpiYFg",
+      authDomain: "prawitama-care.firebaseapp.com",
+      projectId: "prawitama-care",
+      storageBucket: "prawitama-care.appspot.com",
+      messagingSenderId: "288120064420",
+      appId: "1:288120064420:web:592e839670ef26de8e1931"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
