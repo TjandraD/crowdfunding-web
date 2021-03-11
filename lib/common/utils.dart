@@ -19,3 +19,5 @@ String month = (int.tryParse(now.month.toString()) < 10)
 String day = (int.tryParse(now.day.toString()) < 10)
     ? '0${now.day.toString()}'
     : now.day.toString();
+
+String imageUrl;
