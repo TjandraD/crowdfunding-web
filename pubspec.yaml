@@ -12,9 +12,12 @@ dependencies:
   cloud_firestore: ^1.0.0
   cupertino_icons: ^1.0.2
   firebase_core: ^1.0.0
+  firebase_storage: ^8.0.0
   flutter_swiper: ^1.1.6
   google_fonts: ^2.0.0
+  image_picker: ^0.7.2
   lottie: ^1.0.0
+  path: ^1.8.0
   responsive_builder: ^0.3.0
   timeline_tile: ^1.0.0
   url_strategy: ^0.2.0
