@@ -53,7 +53,7 @@ class DonationPage extends StatelessWidget {
                   SizedBox(
                     height: defaultPadding * 4,
                   ),
-                  Footer(),
+                  (sizingInformation.isMobile) ? Container() : Footer(),
                 ],
               ),
             ),

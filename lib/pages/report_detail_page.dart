@@ -235,7 +235,7 @@ class ReportDetail extends StatelessWidget {
                             ),
                           ],
                         ),
-                  Footer(),
+                  (sizingInformation.isMobile) ? Container() : Footer(),
                 ],
               ),
             ),

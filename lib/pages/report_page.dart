@@ -30,7 +30,7 @@ class ReportPage extends StatelessWidget {
                   (sizingInformation.isMobile)
                       ? ReportCardMobile()
                       : ReportCardDesktop(),
-                  Footer(),
+                  (sizingInformation.isMobile) ? Container() : Footer(),
                 ],
               ),
             ),
