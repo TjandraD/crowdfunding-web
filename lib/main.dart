@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/styles.dart';
+import 'package:crowdfunding_web/pages/contact_us.dart';
 import 'package:crowdfunding_web/pages/donation_page.dart';
 import 'package:crowdfunding_web/pages/payment_error_page.dart';
 import 'package:crowdfunding_web/pages/payment_failed_page.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         PaymentSuccess.id: (_) => PaymentSuccess(),
         PaymentFailed.id: (_) => PaymentFailed(),
         PaymentError.id: (_) => PaymentError(),
+        ContactUs.id: (_) => ContactUs(),
       },
     );
   }
