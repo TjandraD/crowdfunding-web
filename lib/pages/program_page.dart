@@ -1,9 +1,7 @@
-import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/services/firestore_services.dart';
 import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:crowdfunding_web/widgets/customAppBar/customAppBarMobile.dart';
 import 'package:crowdfunding_web/widgets/customBottomNavBar.dart';
-import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:crowdfunding_web/widgets/program_card.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';

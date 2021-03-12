@@ -11,112 +11,115 @@ class ReportDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFF3F3F3),
       appBar: CustomAppBarDesktopTablet(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: defaultPadding * 4),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: defaultPadding * 8,
-                        ),
-                        Image.asset('assets/images/Mosque.png'),
-                        SizedBox(
-                          height: defaultPadding,
-                        ),
-                        Text(
-                          "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
-                          style: Theme.of(context).textTheme.headline6.copyWith(
-                                color: buttonColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          "Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor",
-                          style: Theme.of(context).textTheme.bodyText2,
-                          textAlign: TextAlign.left,
-                        ),
-                      ],
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(left: defaultPadding * 4),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: defaultPadding * 8,
+                          ),
+                          Image.asset('assets/images/Mosque.png'),
+                          SizedBox(
+                            height: defaultPadding,
+                          ),
+                          Text(
+                            "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
+                            style:
+                                Theme.of(context).textTheme.headline6.copyWith(
+                                      color: buttonColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                            textAlign: TextAlign.left,
+                          ),
+                          Text(
+                            "Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor",
+                            style: Theme.of(context).textTheme.bodyText2,
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(defaultPadding * 4),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'Riwayat Penggunaan Dana',
-                          style: Theme.of(context).textTheme.headline6,
-                          textAlign: TextAlign.left,
-                        ),
-                        TimelineTile(
-                          endChild: ReportCard(),
-                          indicatorStyle: IndicatorStyle(
-                            height: 16.0,
-                            width: 16.0,
-                            padding: EdgeInsets.symmetric(
-                              vertical: defaultPadding * 0.25,
-                            ),
-                            indicator: Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Color(0xFFe08283),
-                                  width: 2.0,
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(defaultPadding * 4),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            'Riwayat Penggunaan Dana',
+                            style: Theme.of(context).textTheme.headline6,
+                            textAlign: TextAlign.left,
+                          ),
+                          TimelineTile(
+                            endChild: ReportCard(),
+                            indicatorStyle: IndicatorStyle(
+                              height: 16.0,
+                              width: 16.0,
+                              padding: EdgeInsets.symmetric(
+                                vertical: defaultPadding * 0.25,
+                              ),
+                              indicator: Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: Color(0xFFe08283),
+                                    width: 2.0,
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          afterLineStyle: LineStyle(
-                            color: Colors.black54,
-                            thickness: 2.0,
-                          ),
-                          isFirst: true,
-                        ),
-                        TimelineTile(
-                          endChild: ReportCard(),
-                          indicatorStyle: IndicatorStyle(
-                            height: 16.0,
-                            width: 16.0,
-                            padding: EdgeInsets.symmetric(
-                              vertical: defaultPadding * 0.25,
+                            afterLineStyle: LineStyle(
+                              color: Colors.black54,
+                              thickness: 2.0,
                             ),
-                            indicator: Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Color(0xFFe08283),
-                                  width: 2.0,
+                            isFirst: true,
+                          ),
+                          TimelineTile(
+                            endChild: ReportCard(),
+                            indicatorStyle: IndicatorStyle(
+                              height: 16.0,
+                              width: 16.0,
+                              padding: EdgeInsets.symmetric(
+                                vertical: defaultPadding * 0.25,
+                              ),
+                              indicator: Container(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: Color(0xFFe08283),
+                                    width: 2.0,
+                                  ),
                                 ),
                               ),
                             ),
+                            beforeLineStyle: LineStyle(
+                              color: Colors.black54,
+                              thickness: 2.0,
+                            ),
+                            isLast: true,
                           ),
-                          beforeLineStyle: LineStyle(
-                            color: Colors.black54,
-                            thickness: 2.0,
-                          ),
-                          isLast: true,
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Footer(),
-          ],
+                ],
+              ),
+              Footer(),
+            ],
+          ),
         ),
       ),
     );

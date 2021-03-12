@@ -12,14 +12,16 @@ class ReportPage extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBarDesktopTablet(),
       backgroundColor: Color(0xFFF3F3F3),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ReportCard(),
-            ReportCard(),
-            Footer(),
-          ],
+      body: Scrollbar(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ReportCard(),
+              ReportCard(),
+              Footer(),
+            ],
+          ),
         ),
       ),
     );
