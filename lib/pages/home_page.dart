@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/utils.dart';
+import 'package:crowdfunding_web/services/firestore_services.dart';
 import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:crowdfunding_web/widgets/customAppBar/customAppBarMobile.dart';
 import 'package:crowdfunding_web/widgets/customBottomNavBar.dart';
@@ -99,25 +100,54 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 600,
-                      decoration: BoxDecoration(
-                        color: greenBackgroundColor,
-                      ),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
+                    StreamBuilder(
+                      stream: FirestoreServices.getDonationProgram(),
+                      builder: (context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return Stack(
                           children: [
-                            SizedBox(width: defaultPadding * 2),
-                            ProgramCard(),
-                            ProgramCard(),
-                            ProgramCard(),
+                            Container(
+                              width: double.infinity,
+                              height: 600,
+                              decoration: BoxDecoration(
+                                color: greenBackgroundColor,
+                              ),
+                            ),
+                            Container(
+                              height: 570,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: snapshot.data.docs.length,
+                                itemBuilder: (_, index) {
+                                  return Align(
+                                    alignment: Alignment.center,
+                                    child: ProgramCard(
+                                      programDetail: snapshot.data.docs[index]
+                                          ['programDetail'],
+                                      programName: snapshot.data.docs[index]
+                                          ['programName'],
+                                      totalFunds: snapshot
+                                          .data.docs[index]['totalFunds']
+                                          .toString(),
+                                      fundRaised: snapshot
+                                          .data.docs[index]['fundRaised']
+                                          .toString(),
+                                      programImagePath: snapshot
+                                          .data.docs[index]['programImagePath'],
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
                           ],
-                        ),
-                      ),
+                        );
+                      },
                     ),
-                    Footer(),
+                    (sizingInformation.isMobile) ? Container() : Footer(),
                   ],
                 ),
               ),

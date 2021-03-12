@@ -6,7 +6,18 @@ import 'package:responsive_builder/responsive_builder.dart';
 class ProgramCard extends StatefulWidget {
   const ProgramCard({
     Key key,
+    @required this.programName,
+    @required this.programDetail,
+    @required this.totalFunds,
+    @required this.fundRaised,
+    @required this.programImagePath,
   }) : super(key: key);
+
+  final String programName;
+  final String programDetail;
+  final String totalFunds;
+  final String fundRaised;
+  final String programImagePath;
 
   @override
   _ProgramCardState createState() => _ProgramCardState();
@@ -35,7 +46,7 @@ class _ProgramCardState extends State<ProgramCard> {
             duration: Duration(milliseconds: 200),
             margin: EdgeInsets.all(defaultPadding * 2),
             width: 300,
-            height: 500,
+            height: 550,
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -49,8 +60,10 @@ class _ProgramCardState extends State<ProgramCard> {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  'assets/images/Mosque.png',
+                Image.network(
+                  widget.programImagePath,
+                  width: 300,
+                  height: 250,
                   fit: BoxFit.fill,
                 ),
                 Padding(
@@ -61,7 +74,7 @@ class _ProgramCardState extends State<ProgramCard> {
                     0,
                   ),
                   child: Text(
-                    "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
+                    widget.programName,
                     style: titleTextStyle.copyWith(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -73,7 +86,9 @@ class _ProgramCardState extends State<ProgramCard> {
                     horizontal: defaultPadding * 2,
                   ),
                   child: Text(
-                    "Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor",
+                    widget.programDetail,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.caption,
                   ),
                 ),
@@ -100,7 +115,7 @@ class _ProgramCardState extends State<ProgramCard> {
                         style: subtitleTextStyle,
                       ),
                       Text(
-                        "Rp 31.080.075",
+                        widget.fundRaised,
                         style: Theme.of(context).textTheme.subtitle1.copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -139,7 +154,7 @@ class _ProgramCardState extends State<ProgramCard> {
                       Align(
                         alignment: Alignment.bottomRight,
                         child: Text(
-                          "6% dari Rp 500.000.000",
+                          "6% dari Rp ${widget.totalFunds}",
                           style: subtitleTextStyle,
                         ),
                       ),
