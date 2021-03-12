@@ -1,5 +1,6 @@
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/provider/donation_provider.dart';
+import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
 import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,7 +22,7 @@ class DonationPage extends StatelessWidget {
           body: Scrollbar(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
                     height: 80.0,
@@ -29,10 +30,16 @@ class DonationPage extends StatelessWidget {
                       vertical: defaultPadding * 3,
                       horizontal: defaultPadding * 8,
                     ),
-                    child: Image.asset('assets/images/logo.png'),
+                    child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Image.asset('assets/images/logo.png')),
                   ),
                   (sizingInformation.isMobile)
-                      ? mobileColumnChildren
+                      ? Container(
+                          child: Column(
+                            children: mobileColumnChildren,
+                          ),
+                        )
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -210,16 +217,19 @@ class InputSection extends StatelessWidget {
               SizedBox(
                 height: defaultPadding,
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: nominalList.length,
-                itemBuilder: (_, index) {
-                  return NominalCard(
-                    value: nominalList[index],
-                    textController: nominalTextController,
-                  );
-                },
+              Container(
+                height: 35.0,
+                child: ListView.builder(
+                  // shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: nominalList.length,
+                  itemBuilder: (_, index) {
+                    return NominalCard(
+                      value: nominalList[index],
+                      textController: nominalTextController,
+                    );
+                  },
+                ),
               ),
               SizedBox(
                 height: defaultPadding * 1.5,
