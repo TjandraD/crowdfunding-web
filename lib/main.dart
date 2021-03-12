@@ -7,7 +7,9 @@ import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:crowdfunding_web/pages/report_detail_page.dart';
 import 'package:crowdfunding_web/pages/report_page.dart';
+import 'package:crowdfunding_web/provider/donation_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -31,7 +33,10 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.id: (_) => HomePage(),
         ProgramPage.id: (_) => ProgramPage(),
-        DonationPage.id: (_) => DonationPage(),
+        DonationPage.id: (_) => ChangeNotifierProvider<DonationProvider>(
+              create: (_) => DonationProvider(),
+              child: DonationPage(),
+            ),
         ReportPage.id: (_) => ReportPage(),
         ReportDetail.id: (_) => ReportDetail(),
         PaymentSuccess.id: (_) => PaymentSuccess(),

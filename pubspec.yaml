@@ -15,6 +15,7 @@ dependencies:
   flutter_swiper: ^1.1.6
   google_fonts: ^2.0.0
   lottie: ^1.0.0
+  provider: ^5.0.0
   responsive_builder: ^0.3.0
   timeline_tile: ^1.0.0
   url_strategy: ^0.2.0
