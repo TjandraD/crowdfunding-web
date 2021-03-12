@@ -1,4 +1,5 @@
 import 'package:crowdfunding_web/common/utils.dart';
+import 'package:crowdfunding_web/pages/contact_us.dart';
 import 'package:crowdfunding_web/pages/program_page.dart';
 import 'package:crowdfunding_web/pages/home_page.dart';
 import 'package:crowdfunding_web/pages/report_page.dart';
@@ -127,6 +128,7 @@ class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
             onTap: () {
               setState(() {
                 pageNumber = 3;
+                Navigator.pushNamed(context, ContactUs.id);
               });
             },
             child: Center(
