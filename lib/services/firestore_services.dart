@@ -25,7 +25,7 @@ class FirestoreServices {
   //   }
   // }
 
-  static Stream<QuerySnapshot> getDonationProgram() {
+  static Stream<QuerySnapshot> getPrograms() {
     return _program.snapshots();
   }
 }
