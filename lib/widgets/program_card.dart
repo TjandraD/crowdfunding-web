@@ -6,6 +6,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 class ProgramCard extends StatefulWidget {
   const ProgramCard({
     Key key,
+    @required this.id,
     @required this.programName,
     @required this.programDetail,
     @required this.totalFunds,
@@ -13,6 +14,7 @@ class ProgramCard extends StatefulWidget {
     @required this.programImagePath,
   }) : super(key: key);
 
+  final String id;
   final String programName;
   final String programDetail;
   final String totalFunds;
@@ -160,7 +162,11 @@ class _ProgramCardState extends State<ProgramCard> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, DonationPage.id);
+                          Navigator.pushNamed(
+                            context,
+                            DonationPage.id,
+                            arguments: widget.id,
+                          );
                         },
                         child: Container(
                           margin: EdgeInsets.only(top: defaultPadding * 2),

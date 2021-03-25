@@ -1,20 +1,25 @@
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/provider/donation_provider.dart';
+import 'package:crowdfunding_web/services/firestore_services.dart';
 import 'package:crowdfunding_web/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class DonationPage extends StatelessWidget {
   static const String id = '/donation';
-  final List<Widget> mobileColumnChildren = [
-    DonationDetail(),
-    InputSection(),
-  ];
 
   @override
   Widget build(BuildContext context) {
+    final String docsId = ModalRoute.of(context).settings.arguments;
+    final List<Widget> mobileColumnChildren = [
+      DonationDetail(
+        id: docsId,
+      ),
+      InputSection(),
+    ];
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
         return Scaffold(
@@ -43,7 +48,7 @@ class DonationPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Expanded(
-                              child: DonationDetail(),
+                              child: DonationDetail(id: docsId),
                             ),
                             Expanded(
                               child: InputSection(),
@@ -100,34 +105,81 @@ class NominalCard extends StatelessWidget {
 }
 
 class DonationDetail extends StatelessWidget {
+  final String id;
+
+  const DonationDetail({@required this.id});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: defaultPadding * 8,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset('assets/images/Mosque.png'),
-          SizedBox(
-            height: defaultPadding,
-          ),
-          Text(
-            "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: buttonColor,
-                  fontWeight: FontWeight.bold,
+    return FutureBuilder(
+      future: FirestoreServices.getDonation(id),
+      builder: (_, snapshot) {
+        if (snapshot.hasData) {
+          return Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultPadding * 8,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.network(snapshot.data['programImagePath']),
+                SizedBox(
+                  height: defaultPadding,
                 ),
-            textAlign: TextAlign.left,
-          ),
-          Text(
-            "Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor",
-            style: Theme.of(context).textTheme.bodyText2,
-            textAlign: TextAlign.left,
-          ),
-        ],
-      ),
+                Text(
+                  snapshot.data['programName'],
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                        color: buttonColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                  textAlign: TextAlign.left,
+                ),
+                Text(
+                  snapshot.data['programDetail'],
+                  style: Theme.of(context).textTheme.bodyText2,
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            ),
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Column(
+              children: [
+                LottieBuilder.network(
+                  'https://assets6.lottiefiles.com/packages/lf20_4azG0q.json',
+                  width: 300,
+                  height: 300,
+                ),
+                Text(
+                  'Terjadi kesalahan ketika memproses data',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
+            ),
+          );
+        } else if (snapshot.data == null) {
+          return Center(
+            child: Column(
+              children: [
+                LottieBuilder.network(
+                  'https://assets3.lottiefiles.com/packages/lf20_WUEvZP.json',
+                  width: 300,
+                  height: 300,
+                ),
+                Text(
+                  'Empty Data',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
+            ),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 }

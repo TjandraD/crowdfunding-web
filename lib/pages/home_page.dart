@@ -126,7 +126,7 @@ class HomePage extends StatelessWidget {
                                   return Align(
                                     alignment: Alignment.center,
                                     child: ProgramCard(
-                                      id: snapshot.data.docs.id,
+                                      id: snapshot.data.docs[index].id,
                                       programDetail: snapshot.data.docs[index]
                                           ['programDetail'],
                                       programName: snapshot.data.docs[index]
