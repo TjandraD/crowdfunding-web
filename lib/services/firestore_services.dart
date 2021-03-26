@@ -25,7 +25,11 @@ class FirestoreServices {
   //   }
   // }
 
-  static Stream<QuerySnapshot> getDonationProgram() {
+  static Stream<QuerySnapshot> getPrograms() {
     return _program.snapshots();
+  }
+
+  static Future<DocumentSnapshot> getDonation(String id) {
+    return _program.doc(id).get();
   }
 }

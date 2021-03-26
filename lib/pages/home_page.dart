@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     StreamBuilder(
-                      stream: FirestoreServices.getDonationProgram(),
+                      stream: FirestoreServices.getPrograms(),
                       builder: (context, snapshot) {
                         if (!snapshot.hasData) {
                           return Center(
@@ -126,6 +126,7 @@ class HomePage extends StatelessWidget {
                                   return Align(
                                     alignment: Alignment.center,
                                     child: ProgramCard(
+                                      id: snapshot.data.docs[index].id,
                                       programDetail: snapshot.data.docs[index]
                                           ['programDetail'],
                                       programName: snapshot.data.docs[index]

@@ -18,7 +18,7 @@ class ProgramPage extends StatelessWidget {
               : CustomAppBarDesktopTablet(),
           body: SizedBox.expand(
             child: StreamBuilder(
-              stream: FirestoreServices.getDonationProgram(),
+              stream: FirestoreServices.getPrograms(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
                   return Center(
@@ -31,6 +31,7 @@ class ProgramPage extends StatelessWidget {
                     child: Wrap(
                       children: snapshot.data.docs.map<Widget>((program) {
                         return ProgramCard(
+                          id: program.id,
                           programName: program['programName'],
                           programDetail: program['programDetail'],
                           totalFunds: program['totalFunds'].toString(),
