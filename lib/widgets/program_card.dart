@@ -140,7 +140,7 @@ class _ProgramCardState extends State<ProgramCard> {
                             borderRadius: BorderRadius.circular(5),
                             child: AnimatedContainer(
                               height: 10,
-                              width: 500 * 0.2,
+                              width: 500 * 0.0,
                               duration: Duration(microseconds: 500),
                               decoration: BoxDecoration(
                                 color: Colors.lightGreen,
@@ -156,7 +156,7 @@ class _ProgramCardState extends State<ProgramCard> {
                       Align(
                         alignment: Alignment.bottomRight,
                         child: Text(
-                          "6% dari Rp ${widget.totalFunds}",
+                          "Rp ${widget.fundRaised} dari Rp ${widget.totalFunds}",
                           style: subtitleTextStyle,
                         ),
                       ),

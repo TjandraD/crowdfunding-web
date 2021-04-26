@@ -83,15 +83,15 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Status(
-                                  statusCount: "3.474",
+                                  statusCount: "0",
                                   statusTitle: "Donatur",
                                 ),
                                 Status(
-                                  statusCount: "Rp 283.920.407",
+                                  statusCount: "Rp 0",
                                   statusTitle: "Dana Terkumpul",
                                 ),
                                 Status(
-                                  statusCount: "18",
+                                  statusCount: "0",
                                   statusTitle: "Program",
                                 ),
                               ],
