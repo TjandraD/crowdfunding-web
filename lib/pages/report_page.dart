@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crowdfunding_web/common/utils.dart';
 import 'package:crowdfunding_web/pages/report_detail_page.dart';
 import 'package:crowdfunding_web/widgets/customAppBar/customAppBarDesktop.dart';
@@ -20,23 +21,42 @@ class ReportPage extends StatelessWidget {
               : CustomAppBarDesktopTablet(),
           backgroundColor: Color(0xFFF3F3F3),
           body: Scrollbar(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  (sizingInformation.isMobile)
-                      ? ReportCardMobile()
-                      : ReportCardDesktop(),
-                  (sizingInformation.isMobile)
-                      ? ReportCardMobile()
-                      : ReportCardDesktop(),
-                  (sizingInformation.isMobile) ? Container() : Footer(),
-                ],
-              ),
+            child: StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection('report').snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(child: CircularProgressIndicator());
+                }
+                return ListView.builder(
+                  itemCount: snapshot.data.docs.length,
+                  itemBuilder: (context, index) {
+                    return (sizingInformation.isMobile)
+                        ? ReportCardMobile(
+                            programName: snapshot.data.docs[index]
+                                ['programName'],
+                            programDetail: snapshot.data.docs[index]
+                                ['programDetail'],
+                            imagePath: snapshot.data.docs[index]
+                                ['programImagePath'],
+                            fundRaised: snapshot.data.docs[index]['fundRaised'],
+                          )
+                        : ReportCardDesktop(
+                            programName: snapshot.data.docs[index]
+                                ['programName'],
+                            programDetail: snapshot.data.docs[index]
+                                ['programDetail'],
+                            imagePath: snapshot.data.docs[index]
+                                ['programImagePath'],
+                            fundRaised: snapshot.data.docs[index]['fundRaised'],
+                          );
+                  },
+                );
+              },
             ),
           ),
           bottomNavigationBar:
-              (sizingInformation.isMobile) ? CustomBottomNavBar() : null,
+              (sizingInformation.isMobile) ? CustomBottomNavBar() : Footer(),
         );
       },
     );
@@ -44,12 +64,21 @@ class ReportPage extends StatelessWidget {
 }
 
 class ReportCardMobile extends StatelessWidget {
+  ReportCardMobile({
+    this.programName,
+    this.programDetail,
+    this.imagePath,
+    this.fundRaised,
+  });
+
+  final String imagePath;
+  final String programName;
+  final String programDetail;
+  final int fundRaised;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, ReportDetail.id);
-      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
@@ -63,7 +92,7 @@ class ReportCardMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ClipRRect(
-              child: Image.asset('assets/images/Mosque.png'),
+              child: Image.network(imagePath),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(8.0),
                 topRight: Radius.circular(8.0),
@@ -77,13 +106,13 @@ class ReportCardMobile extends StatelessWidget {
                     height: defaultPadding * 2,
                   ),
                   Text(
-                    'DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR',
+                    programName,
                     style: Theme.of(context).textTheme.headline5.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                   Text(
-                    'Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor',
+                    programDetail,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                   SizedBox(
@@ -102,15 +131,11 @@ class ReportCardMobile extends StatelessWidget {
                       children: [
                         StatsColumn(
                           title: 'Dana Terkumpul',
-                          numberStats: 'Rp 31.080.075',
+                          numberStats: fundRaised.toString(),
                         ),
                         StatsColumn(
                           title: 'Dana Tersalurkan',
-                          numberStats: 'Rp 31.080.075',
-                        ),
-                        StatsColumn(
-                          title: 'Donatur',
-                          numberStats: '1.750',
+                          numberStats: fundRaised.toString(),
                         ),
                       ],
                     ),
@@ -126,12 +151,20 @@ class ReportCardMobile extends StatelessWidget {
 }
 
 class ReportCardDesktop extends StatelessWidget {
+  ReportCardDesktop({
+    this.programName,
+    this.programDetail,
+    this.imagePath,
+    this.fundRaised,
+  });
+
+  final String imagePath;
+  final String programName;
+  final String programDetail;
+  final int fundRaised;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, ReportDetail.id);
-      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.0),
@@ -143,12 +176,14 @@ class ReportCardDesktop extends StatelessWidget {
         ),
         child: Row(
           children: [
-            ClipRRect(
-              child: Image.asset('assets/images/Mosque.png'),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(8.0),
-                bottomLeft: Radius.circular(8.0),
+            Container(
+              width: 400,
+              height: 400,
+              child: Image.network(
+                imagePath,
+                fit: BoxFit.cover,
               ),
+
             ),
             SizedBox(
               width: defaultPadding * 2,
@@ -157,13 +192,13 @@ class ReportCardDesktop extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR',
+                  programName,
                   style: Theme.of(context).textTheme.headline5.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 Text(
-                  'Masjid yang didirikan akan digunakan oleh para siswa/i di SMK Wikrama Bogor',
+                  programDetail,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 SizedBox(
@@ -179,15 +214,11 @@ class ReportCardDesktop extends StatelessWidget {
                   children: [
                     StatsColumn(
                       title: 'Dana Terkumpul',
-                      numberStats: 'Rp 31.080.075',
+                      numberStats: fundRaised.toString(),
                     ),
                     StatsColumn(
                       title: 'Dana Tersalurkan',
-                      numberStats: 'Rp 31.080.075',
-                    ),
-                    StatsColumn(
-                      title: 'Donatur',
-                      numberStats: '1.750',
+                      numberStats: fundRaised.toString(),
                     ),
                   ],
                 ),

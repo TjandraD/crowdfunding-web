@@ -30,85 +30,86 @@ class HomePage extends StatelessWidget {
           body: Scrollbar(
             child: SizedBox.expand(
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      height: (sizingInformation.isDesktop)
-                          ? 500
-                          : (sizingInformation.isTablet)
-                              ? 300
-                              : 200,
-                      child: Swiper(
-                        itemCount: 2,
-                        itemBuilder: (context, index) {
-                          return Image.asset(
-                            'assets/images/Banner.png',
-                            fit: BoxFit.fill,
-                          );
-                        },
-                        pagination: SwiperPagination(),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: defaultPadding * 5,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Status Penerimaan",
-                            style: statusHeadlineText.copyWith(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
+                child: StreamBuilder(
+                  stream: FirestoreServices.getPrograms(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return Column(
+                      children: [
+                        Container(
+                          height: (sizingInformation.isDesktop)
+                              ? 500
+                              : (sizingInformation.isTablet)
+                                  ? 300
+                                  : 200,
+                          child: Swiper(
+                            itemCount: 2,
+                            itemBuilder: (context, index) {
+                              return Image.asset(
+                                'assets/images/Banner.png',
+                                fit: BoxFit.fill,
+                              );
+                            },
+                            pagination: SwiperPagination(),
                           ),
-                          Text(
-                            "Sampai dengan $day/$month/$year",
-                            style: Theme.of(context).textTheme.subtitle1,
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            vertical: defaultPadding * 5,
                           ),
-                          SizedBox(
-                            height: defaultPadding * 2,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                              vertical: defaultPadding * 4,
-                              horizontal: (sizingInformation.isMobile)
-                                  ? defaultPadding * 2
-                                  : (sizingInformation.isTablet)
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Status Penerimaan",
+                                style: statusHeadlineText.copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Sampai dengan $day/$month/$year",
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                              SizedBox(
+                                height: defaultPadding * 2,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  vertical: defaultPadding * 4,
+                                  horizontal: (sizingInformation.isMobile)
                                       ? defaultPadding * 2
-                                      : defaultPadding * 20,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Status(
-                                  statusCount: "0",
-                                  statusTitle: "Donatur",
+                                      : (sizingInformation.isTablet)
+                                          ? defaultPadding * 2
+                                          : defaultPadding * 20,
                                 ),
-                                Status(
-                                  statusCount: "Rp 0",
-                                  statusTitle: "Dana Terkumpul",
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Status(
+                                      statusCount: "0",
+                                      statusTitle: "Donatur",
+                                    ),
+                                    Status(
+                                      statusCount: "Rp 0",
+                                      statusTitle: "Dana Terkumpul",
+                                    ),
+                                    Status(
+                                      statusCount:
+                                          snapshot.data.docs.length.toString(),
+                                      statusTitle: "Program",
+                                    ),
+                                  ],
                                 ),
-                                Status(
-                                  statusCount: "0",
-                                  statusTitle: "Program",
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    StreamBuilder(
-                      stream: FirestoreServices.getPrograms(),
-                      builder: (context, snapshot) {
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: CircularProgressIndicator(),
-                          );
-                        }
-                        return Stack(
+                        ),
+                        Stack(
                           children: [
                             Container(
                               width: double.infinity,
@@ -145,11 +146,11 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                           ],
-                        );
-                      },
-                    ),
-                    (sizingInformation.isMobile) ? Container() : Footer(),
-                  ],
+                        ),
+                        (sizingInformation.isMobile) ? Container() : Footer(),
+                      ],
+                    );
+                  },
                 ),
               ),
             ),
