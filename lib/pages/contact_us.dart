@@ -63,16 +63,12 @@ class ContactUs extends StatelessWidget {
                       : Column(
                           children: listCard,
                         ),
-                  SizedBox(
-                    height: 40.0,
-                  ),
-                  (sizingInformation.isMobile) ? Container() : Footer(),
                 ],
               ),
             ),
           ),
           bottomNavigationBar:
-              (sizingInformation.isMobile) ? CustomBottomNavBar() : null,
+              (sizingInformation.isMobile) ? CustomBottomNavBar() : Footer(),
         );
       },
     );
