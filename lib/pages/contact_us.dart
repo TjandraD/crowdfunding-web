@@ -76,9 +76,9 @@ class ContactUs extends StatelessWidget {
 }
 
 class ContactCard extends StatefulWidget {
-  final String title;
-  final String content;
-  final IconData icon;
+  final String? title;
+  final String? content;
+  final IconData? icon;
 
   const ContactCard({
     this.title,
@@ -148,11 +148,11 @@ class _ContactCardState extends State<ContactCard> {
                       : defaultPadding * 4,
                 ),
                 Text(
-                  widget.title,
+                  widget.title!,
                   style: Theme.of(context).textTheme.headline5,
                 ),
                 Text(
-                  widget.content,
+                  widget.content!,
                   style: Theme.of(context).textTheme.bodyText1,
                   textAlign: TextAlign.center,
                 ),

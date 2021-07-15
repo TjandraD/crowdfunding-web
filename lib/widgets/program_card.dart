@@ -5,21 +5,21 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class ProgramCard extends StatefulWidget {
   const ProgramCard({
-    Key key,
-    @required this.id,
-    @required this.programName,
-    @required this.programDetail,
-    @required this.totalFunds,
-    @required this.fundRaised,
-    @required this.programImagePath,
+    Key? key,
+    required this.id,
+    required this.programName,
+    required this.programDetail,
+    required this.totalFunds,
+    required this.fundRaised,
+    required this.programImagePath,
   }) : super(key: key);
 
-  final String id;
-  final String programName;
-  final String programDetail;
+  final String? id;
+  final String? programName;
+  final String? programDetail;
   final String totalFunds;
   final String fundRaised;
-  final String programImagePath;
+  final String? programImagePath;
 
   @override
   _ProgramCardState createState() => _ProgramCardState();
@@ -39,9 +39,9 @@ class _ProgramCardState extends State<ProgramCard> {
       child: ResponsiveBuilder(
         builder: (context, sizingInformation) {
           TextStyle titleTextStyle = (sizingInformation.isMobile)
-              ? Theme.of(context).textTheme.bodyText2
-              : Theme.of(context).textTheme.bodyText1;
-          TextStyle subtitleTextStyle = (sizingInformation.isMobile)
+              ? Theme.of(context).textTheme.bodyText2!
+              : Theme.of(context).textTheme.bodyText1!;
+          TextStyle? subtitleTextStyle = (sizingInformation.isMobile)
               ? Theme.of(context).textTheme.overline
               : Theme.of(context).textTheme.subtitle2;
           return AnimatedContainer(
@@ -63,7 +63,7 @@ class _ProgramCardState extends State<ProgramCard> {
             child: Column(
               children: [
                 Image.network(
-                  widget.programImagePath,
+                  widget.programImagePath!,
                   width: 300,
                   height: 250,
                   fit: BoxFit.fill,
@@ -76,7 +76,7 @@ class _ProgramCardState extends State<ProgramCard> {
                     0,
                   ),
                   child: Text(
-                    widget.programName,
+                    widget.programName!,
                     style: titleTextStyle.copyWith(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -88,7 +88,7 @@ class _ProgramCardState extends State<ProgramCard> {
                     horizontal: defaultPadding * 2,
                   ),
                   child: Text(
-                    widget.programDetail,
+                    widget.programDetail!,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.caption,
@@ -118,7 +118,7 @@ class _ProgramCardState extends State<ProgramCard> {
                       ),
                       Text(
                         widget.fundRaised,
-                        style: Theme.of(context).textTheme.subtitle1.copyWith(
+                        style: Theme.of(context).textTheme.subtitle1!.copyWith(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
@@ -180,7 +180,7 @@ class _ProgramCardState extends State<ProgramCard> {
                           child: Text(
                             "DONASI SEKARANG",
                             style:
-                                Theme.of(context).textTheme.bodyText2.copyWith(
+                                Theme.of(context).textTheme.bodyText2!.copyWith(
                                       color: Colors.white,
                                     ),
                           ),

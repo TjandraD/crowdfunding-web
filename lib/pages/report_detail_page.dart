@@ -44,7 +44,7 @@ class ReportDetail extends StatelessWidget {
                                       "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6
+                                          .headline6!
                                           .copyWith(
                                             color: buttonColor,
                                             fontWeight: FontWeight.bold,
@@ -149,7 +149,7 @@ class ReportDetail extends StatelessWidget {
                                       "DUKUNG PEMBANGUNAN MASJID DI SMK WIKRAMA BOGOR",
                                       style: Theme.of(context)
                                           .textTheme
-                                          .headline6
+                                          .headline6!
                                           .copyWith(
                                             color: buttonColor,
                                             fontWeight: FontWeight.bold,
@@ -275,7 +275,7 @@ class ReportCard extends StatelessWidget {
           Image.asset('assets/images/report.jpg'),
           Text(
             'Makan Bersama Anak Yatim Piatu',
-            style: Theme.of(context).textTheme.headline5.copyWith(
+            style: Theme.of(context).textTheme.headline5!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),

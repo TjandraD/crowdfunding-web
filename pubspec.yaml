@@ -4,23 +4,23 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: ^1.0.0
+  cloud_firestore: ^2.3.0
   cupertino_icons: ^1.0.2
   firebase_core: ^1.0.0
-  firebase_storage: ^8.0.0
+  firebase_storage: ^9.0.0
   flutter_swiper: ^1.1.6
   google_fonts: ^2.0.0
-  image_picker: ^0.7.2
+  image_picker: ^0.8.1+4
   lottie: ^1.0.0
   provider: ^5.0.0
   path: ^1.8.0
-  responsive_builder: ^0.3.0
-  timeline_tile: ^1.0.0
+  responsive_builder: ^0.4.1
+  timeline_tile: ^2.0.0
   url_strategy: ^0.2.0
 
 dev_dependencies:

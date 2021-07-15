@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) {
-        TextStyle statusHeadlineText = (sizingInformation.isMobile)
+        TextStyle? statusHeadlineText = (sizingInformation.isMobile)
             ? Theme.of(context).textTheme.headline6
             : (sizingInformation.isTablet)
                 ? Theme.of(context).textTheme.headline5
@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                             children: [
                               Text(
                                 "Status Penerimaan",
-                                style: statusHeadlineText.copyWith(
+                                style: statusHeadlineText!.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
                                 ),

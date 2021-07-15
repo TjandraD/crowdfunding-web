@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Footer extends StatelessWidget {
   const Footer({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -17,7 +17,7 @@ class Footer extends StatelessWidget {
       color: Colors.grey,
       child: Text(
         "Copyright © $year - SMK Wikrama Bogor. All Right Reserved.",
-        style: Theme.of(context).textTheme.caption.copyWith(
+        style: Theme.of(context).textTheme.caption!.copyWith(
               color: Colors.white,
             ),
       ),

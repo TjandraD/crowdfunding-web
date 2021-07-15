@@ -50,7 +50,7 @@ class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
             child: Center(
               child: Text(
                 'Beranda',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: (indexNumber == 0 && isHover != false ||
                             pageNumber == 0)
                         ? Colors.black
@@ -78,7 +78,7 @@ class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
             child: Center(
               child: Text(
                 'Donasi',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: (indexNumber == 1 && isHover != false ||
                             pageNumber == 1)
                         ? Colors.black
@@ -106,7 +106,7 @@ class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
             child: Center(
               child: Text(
                 'Laporan',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: (indexNumber == 2 && isHover != false ||
                             pageNumber == 2)
                         ? Colors.black
@@ -134,7 +134,7 @@ class _CustomAppBarDesktopTabletState extends State<CustomAppBarDesktopTablet> {
             child: Center(
               child: Text(
                 'Hubungi Kami',
-                style: Theme.of(context).textTheme.bodyText1.copyWith(
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
                     color: (indexNumber == 3 && isHover != false ||
                             pageNumber == 3)
                         ? Colors.black

@@ -4,9 +4,9 @@ import 'package:lottie/lottie.dart';
 
 class PaymentStatus extends StatelessWidget {
   const PaymentStatus({
-    Key key,
-    @required this.lottieAssetSource,
-    @required this.statusText,
+    Key? key,
+    required this.lottieAssetSource,
+    required this.statusText,
   }) : super(key: key);
 
   final String lottieAssetSource;
@@ -29,7 +29,7 @@ class PaymentStatus extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
-                .bodyText1
+                .bodyText1!
                 .copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
           TextButton(
@@ -38,7 +38,7 @@ class PaymentStatus extends StatelessWidget {
             },
             child: Text(
               "Kembali ke halaman utama",
-              style: Theme.of(context).textTheme.bodyText1.copyWith(
+              style: Theme.of(context).textTheme.bodyText1!.copyWith(
                   color: Colors.blue, decoration: TextDecoration.underline),
             ),
           ),

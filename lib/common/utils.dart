@@ -15,11 +15,11 @@ List routeList = [HomePage.id, ProgramPage.id, ReportPage.id, ContactUs.id];
 
 DateTime now = DateTime.now();
 String year = now.year.toString();
-String month = (int.tryParse(now.month.toString()) < 10)
+String month = (int.tryParse(now.month.toString())! < 10)
     ? '0${now.month.toString()}'
     : now.month.toString();
-String day = (int.tryParse(now.day.toString()) < 10)
+String day = (int.tryParse(now.day.toString())! < 10)
     ? '0${now.day.toString()}'
     : now.day.toString();
 
-String imageUrl;
+String? imageUrl;

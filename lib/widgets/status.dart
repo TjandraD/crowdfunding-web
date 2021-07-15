@@ -3,9 +3,9 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 class Status extends StatelessWidget {
   const Status({
-    Key key,
-    @required this.statusCount,
-    @required this.statusTitle,
+    Key? key,
+    required this.statusCount,
+    required this.statusTitle,
   }) : super(key: key);
 
   final String statusCount;
@@ -17,9 +17,9 @@ class Status extends StatelessWidget {
       child: ResponsiveBuilder(
         builder: (context, sizingInformation) {
           TextStyle statusCountStyle = (sizingInformation.isMobile)
-              ? Theme.of(context).textTheme.subtitle1
-              : Theme.of(context).textTheme.headline6;
-          TextStyle statusTitleStyle = (sizingInformation.isMobile)
+              ? Theme.of(context).textTheme.subtitle1!
+              : Theme.of(context).textTheme.headline6!;
+          TextStyle? statusTitleStyle = (sizingInformation.isMobile)
               ? Theme.of(context).textTheme.subtitle2
               : Theme.of(context).textTheme.subtitle1;
 

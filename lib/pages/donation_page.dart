@@ -13,7 +13,7 @@ class DonationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String docsId = ModalRoute.of(context).settings.arguments;
+    final String? docsId = ModalRoute.of(context)!.settings.arguments as String?;
     final List<Widget> mobileColumnChildren = [
       DonationDetail(
         id: docsId,
@@ -74,8 +74,8 @@ class NominalCard extends StatelessWidget {
   final TextEditingController textController;
 
   NominalCard({
-    @required this.value,
-    @required this.textController,
+    required this.value,
+    required this.textController,
   });
 
   @override
@@ -89,7 +89,7 @@ class NominalCard extends StatelessWidget {
         margin: EdgeInsets.only(right: defaultPadding * 0.5),
         child: Text(
           value,
-          style: Theme.of(context).textTheme.bodyText1.copyWith(
+          style: Theme.of(context).textTheme.bodyText1!.copyWith(
                 color: buttonColor,
               ),
         ),
@@ -105,9 +105,9 @@ class NominalCard extends StatelessWidget {
 }
 
 class DonationDetail extends StatelessWidget {
-  final String id;
+  final String? id;
 
-  const DonationDetail({@required this.id});
+  const DonationDetail({required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,7 @@ class DonationDetail extends StatelessWidget {
                 ),
                 Text(
                   snapshot.data['programName'],
-                  style: Theme.of(context).textTheme.headline6.copyWith(
+                  style: Theme.of(context).textTheme.headline6!.copyWith(
                         color: buttonColor,
                         fontWeight: FontWeight.bold,
                       ),
@@ -231,7 +231,7 @@ class InputSection extends StatelessWidget {
                         'IDR',
                         style: Theme.of(context)
                             .textTheme
-                            .headline4
+                            .headline4!
                             .copyWith(color: Colors.black.withOpacity(0.5)),
                       ),
                     ),
@@ -243,7 +243,7 @@ class InputSection extends StatelessWidget {
                         child: TextField(
                           style: Theme.of(context)
                               .textTheme
-                              .headline4
+                              .headline4!
                               .copyWith(color: Colors.black),
                           keyboardType: TextInputType.number,
                           controller: nominalTextController,
@@ -255,7 +255,7 @@ class InputSection extends StatelessWidget {
                             hintText: '0',
                             border: InputBorder.none,
                             hintStyle:
-                                Theme.of(context).textTheme.headline4.copyWith(
+                                Theme.of(context).textTheme.headline4!.copyWith(
                                       color: Colors.black.withOpacity(0.5),
                                     ),
                           ),
@@ -309,15 +309,15 @@ class InputSection extends StatelessWidget {
                   child: TextField(
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headline4!
                         .copyWith(color: Colors.black),
-                    enabled: !state.isAnonym,
+                    enabled: !state.isAnonym!,
                     keyboardType: TextInputType.name,
                     controller: nameTextController,
                     decoration: InputDecoration(
                       hintText: 'Nama Lengkap',
                       border: InputBorder.none,
-                      hintStyle: Theme.of(context).textTheme.headline4.copyWith(
+                      hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Colors.black.withOpacity(0.5),
                           ),
                     ),
@@ -329,7 +329,7 @@ class InputSection extends StatelessWidget {
                   Checkbox(
                     value: state.isAnonym,
                     onChanged: (newValue) {
-                      if (newValue) {
+                      if (newValue!) {
                         nameTextController.text = 'Anonim';
                       } else {
                         nameTextController.text = '';
@@ -358,7 +358,7 @@ class InputSection extends StatelessWidget {
                   child: TextField(
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headline4!
                         .copyWith(color: Colors.black),
                     inputFormatters: [
                       FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
@@ -368,7 +368,7 @@ class InputSection extends StatelessWidget {
                     decoration: InputDecoration(
                       hintText: 'No. Handphone',
                       border: InputBorder.none,
-                      hintStyle: Theme.of(context).textTheme.headline4.copyWith(
+                      hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Colors.black.withOpacity(0.5),
                           ),
                     ),
@@ -393,14 +393,14 @@ class InputSection extends StatelessWidget {
                   child: TextField(
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headline4!
                         .copyWith(color: Colors.black),
                     keyboardType: TextInputType.emailAddress,
                     controller: emailTextController,
                     decoration: InputDecoration(
                       hintText: 'Alamat Email',
                       border: InputBorder.none,
-                      hintStyle: Theme.of(context).textTheme.headline4.copyWith(
+                      hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
                             color: Colors.black.withOpacity(0.5),
                           ),
                     ),
@@ -425,7 +425,7 @@ class InputSection extends StatelessWidget {
                     'BAYAR SEKARANG',
                     style: Theme.of(context)
                         .textTheme
-                        .headline4
+                        .headline4!
                         .copyWith(color: Colors.white),
                   ),
                 ),

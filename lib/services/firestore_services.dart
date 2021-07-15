@@ -29,7 +29,7 @@ class FirestoreServices {
     return _program.snapshots();
   }
 
-  static Future<DocumentSnapshot> getDonation(String id) {
+  static Future<DocumentSnapshot> getDonation(String? id) {
     return _program.doc(id).get();
   }
 }

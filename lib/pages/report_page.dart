@@ -71,10 +71,10 @@ class ReportCardMobile extends StatelessWidget {
     this.fundRaised,
   });
 
-  final String imagePath;
-  final String programName;
-  final String programDetail;
-  final int fundRaised;
+  final String? imagePath;
+  final String? programName;
+  final String? programDetail;
+  final int? fundRaised;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class ReportCardMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ClipRRect(
-              child: Image.network(imagePath),
+              child: Image.network(imagePath!),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(8.0),
                 topRight: Radius.circular(8.0),
@@ -106,13 +106,13 @@ class ReportCardMobile extends StatelessWidget {
                     height: defaultPadding * 2,
                   ),
                   Text(
-                    programName,
-                    style: Theme.of(context).textTheme.headline5.copyWith(
+                    programName!,
+                    style: Theme.of(context).textTheme.headline5!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                   Text(
-                    programDetail,
+                    programDetail!,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
                   SizedBox(
@@ -158,10 +158,10 @@ class ReportCardDesktop extends StatelessWidget {
     this.fundRaised,
   });
 
-  final String imagePath;
-  final String programName;
-  final String programDetail;
-  final int fundRaised;
+  final String? imagePath;
+  final String? programName;
+  final String? programDetail;
+  final int? fundRaised;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -180,7 +180,7 @@ class ReportCardDesktop extends StatelessWidget {
               width: 400,
               height: 400,
               child: Image.network(
-                imagePath,
+                imagePath!,
                 fit: BoxFit.cover,
               ),
 
@@ -192,13 +192,13 @@ class ReportCardDesktop extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  programName,
-                  style: Theme.of(context).textTheme.headline5.copyWith(
+                  programName!,
+                  style: Theme.of(context).textTheme.headline5!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
                 Text(
-                  programDetail,
+                  programDetail!,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 SizedBox(
@@ -236,8 +236,8 @@ class StatsColumn extends StatelessWidget {
   final String numberStats;
 
   StatsColumn({
-    @required this.title,
-    @required this.numberStats,
+    required this.title,
+    required this.numberStats,
   });
 
   @override
@@ -254,7 +254,7 @@ class StatsColumn extends StatelessWidget {
           ),
           Text(
             numberStats,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           )
